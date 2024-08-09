@@ -19,12 +19,14 @@ class BaseViewController: UIViewController {
         setUpNavigationItems()
         setUpNavigationTitle()
         hideKeyboardWhenTappedAround()
+        bind()
     }
     func setUpHierarchy() { }
     func setUpLayout() { }
     func setUpView() { }
     func setUpTableView() { }
     func setUpButton() { }
+    func bind() { }
     func setUpNavigationTitle() { }
     func setUpNavigationItems() {
         navigationItem.backBarButtonItem?.tintColor = .black
