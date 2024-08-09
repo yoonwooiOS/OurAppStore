@@ -27,6 +27,9 @@
 		99320ADA2C64FC9600AF562B /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99320AD92C64FC9500AF562B /* GameViewController.swift */; };
 		99320ADC2C64FC9C00AF562B /* ArcadeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99320ADB2C64FC9C00AF562B /* ArcadeViewController.swift */; };
 		99320ADE2C64FCD700AF562B /* AppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99320ADD2C64FCD700AF562B /* AppViewController.swift */; };
+		99320AE32C66039F00AF562B /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99320AE22C66039F00AF562B /* SearchTableViewCell.swift */; };
+		99320AE52C665D5500AF562B /* Software.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99320AE42C665D5500AF562B /* Software.swift */; };
+		99320AE82C665EBB00AF562B /* NetworkManeger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99320AE72C665EBB00AF562B /* NetworkManeger.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +51,9 @@
 		99320AD92C64FC9500AF562B /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		99320ADB2C64FC9C00AF562B /* ArcadeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArcadeViewController.swift; sourceTree = "<group>"; };
 		99320ADD2C64FCD700AF562B /* AppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViewController.swift; sourceTree = "<group>"; };
+		99320AE22C66039F00AF562B /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
+		99320AE42C665D5500AF562B /* Software.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Software.swift; sourceTree = "<group>"; };
+		99320AE72C665EBB00AF562B /* NetworkManeger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManeger.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +90,9 @@
 		99320AA32C64F78900AF562B /* OurAppStore */ = {
 			isa = PBXGroup;
 			children = (
+				99320AE62C665EB100AF562B /* Network */,
+				99320AE02C66036600AF562B /* Model */,
+				99320ADF2C66031C00AF562B /* TabBar */,
 				99320AD22C64FAA600AF562B /* Resource */,
 				99320ACF2C64FA1F00AF562B /* View */,
 				99320ABF2C64F89700AF562B /* Extension */,
@@ -93,7 +102,6 @@
 				99320AAD2C64F78A00AF562B /* Assets.xcassets */,
 				99320AAF2C64F78A00AF562B /* LaunchScreen.storyboard */,
 				99320AB22C64F78A00AF562B /* Info.plist */,
-				99320AD02C64FA7900AF562B /* HomeTabBarController.swift */,
 			);
 			path = OurAppStore;
 			sourceTree = "<group>";
@@ -120,7 +128,7 @@
 		99320ACF2C64FA1F00AF562B /* View */ = {
 			isa = PBXGroup;
 			children = (
-				99320AA82C64F78900AF562B /* SearchViewcontroller.swift */,
+				99320AE12C66038D00AF562B /* Search */,
 				99320AD72C64FC8E00AF562B /* TodayViewController.swift */,
 				99320AD92C64FC9500AF562B /* GameViewController.swift */,
 				99320ADB2C64FC9C00AF562B /* ArcadeViewController.swift */,
@@ -135,6 +143,39 @@
 				99320AD52C64FAF100AF562B /* Image.swift */,
 			);
 			path = Resource;
+			sourceTree = "<group>";
+		};
+		99320ADF2C66031C00AF562B /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				99320AD02C64FA7900AF562B /* HomeTabBarController.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		99320AE02C66036600AF562B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				99320AE42C665D5500AF562B /* Software.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		99320AE12C66038D00AF562B /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				99320AA82C64F78900AF562B /* SearchViewcontroller.swift */,
+				99320AE22C66039F00AF562B /* SearchTableViewCell.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		99320AE62C665EB100AF562B /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				99320AE72C665EBB00AF562B /* NetworkManeger.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -222,6 +263,7 @@
 				99320ABC2C64F87900AF562B /* BaseCollectionViewCell.swift in Sources */,
 				99320AA52C64F78900AF562B /* AppDelegate.swift in Sources */,
 				99320ADC2C64FC9C00AF562B /* ArcadeViewController.swift in Sources */,
+				99320AE52C665D5500AF562B /* Software.swift in Sources */,
 				99320ADE2C64FCD700AF562B /* AppViewController.swift in Sources */,
 				99320ABD2C64F87900AF562B /* BaseTableViewCell.swift in Sources */,
 				99320ADA2C64FC9600AF562B /* GameViewController.swift in Sources */,
@@ -230,7 +272,9 @@
 				99320AA72C64F78900AF562B /* SceneDelegate.swift in Sources */,
 				99320ABE2C64F87900AF562B /* BaseViewController.swift in Sources */,
 				99320AC32C64F8C700AF562B /* ReuseIdentifier.swift in Sources */,
+				99320AE82C665EBB00AF562B /* NetworkManeger.swift in Sources */,
 				99320AD62C64FAF100AF562B /* Image.swift in Sources */,
+				99320AE32C66039F00AF562B /* SearchTableViewCell.swift in Sources */,
 				99320AD82C64FC8E00AF562B /* TodayViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
