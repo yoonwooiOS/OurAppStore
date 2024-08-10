@@ -7,25 +7,26 @@
 
 import UIKit
 import SnapKit
+import Kingfisher
 
 class SearchTableViewCell: BaseTableViewCell {
     let baseView = {
         let view = UIView()
-        view.backgroundColor = .systemGreen
+//        view.backgroundColor = .systemGreen
         return view
     }()
     let appIconImageView = {
         let view = UIImageView()
-        view.backgroundColor = .systemBlue
+//        view.backgroundColor = .systemBlue
         view.contentMode = .scaleAspectFit
         view.clipsToBounds = true
-        view.layer.cornerRadius = 4
+        view.layer.cornerRadius = 8
         return view
     }()
     let appNameLabel = {
         let label = UILabel()
         label.text = "dsadas"
-        label.font = UIFont.systemFont(ofSize: 24)
+        label.font = UIFont.systemFont(ofSize: 20)
         return label
     }()
     let downloadButton = {
@@ -47,7 +48,7 @@ class SearchTableViewCell: BaseTableViewCell {
     override func setUpLayout() {
         baseView.snp.makeConstraints { make in
             make.top.horizontalEdges.equalTo(contentView.safeAreaLayoutGuide)
-            make.height.equalTo(92)
+            make.height.equalTo(80)
         }
         appIconImageView.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
@@ -57,6 +58,7 @@ class SearchTableViewCell: BaseTableViewCell {
         appNameLabel.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
             make.leading.equalTo(appIconImageView.snp.trailing).offset(4)
+            make.trailing.equalTo(contentView.safeAreaLayoutGuide).inset(100)
         }
         downloadButton.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
@@ -64,4 +66,10 @@ class SearchTableViewCell: BaseTableViewCell {
             make.width.equalTo(80)
         }
     }
+     func setUpCell(data: Result) {
+         appNameLabel.text = data.trackName
+         let url = URL(string: data.artworkUrl512)
+         appIconImageView.kf.setImage(with: url)
+    }
+    
 }

@@ -18,8 +18,8 @@ final class NetworkManeger {
     static let shared = NetworkManeger()
     private init() { }
     
-    func callAPIRequest() -> Observable<Software> {
-        let url = "https://itunes.apple.com/search?country=KR&term=kakaotalk&media=software"
+    func callAPIRequest(appName: String) -> Observable<Software> {
+        let url = "https://itunes.apple.com/search?country=KR&term=\(appName)&media=software"
         let result = Observable<Software>.create { observer in
             
             guard let url = URL(string: url) else {

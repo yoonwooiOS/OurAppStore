@@ -30,6 +30,10 @@
 		99320AE32C66039F00AF562B /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99320AE22C66039F00AF562B /* SearchTableViewCell.swift */; };
 		99320AE52C665D5500AF562B /* Software.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99320AE42C665D5500AF562B /* Software.swift */; };
 		99320AE82C665EBB00AF562B /* NetworkManeger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99320AE72C665EBB00AF562B /* NetworkManeger.swift */; };
+		99320AEA2C67152200AF562B /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99320AE92C67152200AF562B /* SearchViewModel.swift */; };
+		99320AED2C67161000AF562B /* InputOutputViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99320AEC2C67161000AF562B /* InputOutputViewModel.swift */; };
+		9996C6582C674002008F1722 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 9996C6572C674002008F1722 /* Kingfisher */; };
+		9996C65B2C674E0D008F1722 /* SearchDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9996C65A2C674E0D008F1722 /* SearchDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +58,9 @@
 		99320AE22C66039F00AF562B /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		99320AE42C665D5500AF562B /* Software.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Software.swift; sourceTree = "<group>"; };
 		99320AE72C665EBB00AF562B /* NetworkManeger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManeger.swift; sourceTree = "<group>"; };
+		99320AE92C67152200AF562B /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		99320AEC2C67161000AF562B /* InputOutputViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputOutputViewModel.swift; sourceTree = "<group>"; };
+		9996C65A2C674E0D008F1722 /* SearchDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +72,7 @@
 				99320ACB2C64F90500AF562B /* SnapKit in Frameworks */,
 				99320AC82C64F8F600AF562B /* RxSwift in Frameworks */,
 				99320AC62C64F8F600AF562B /* RxCocoa in Frameworks */,
+				9996C6582C674002008F1722 /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,6 +98,7 @@
 		99320AA32C64F78900AF562B /* OurAppStore */ = {
 			isa = PBXGroup;
 			children = (
+				99320AEB2C67155100AF562B /* Protocol */,
 				99320AE62C665EB100AF562B /* Network */,
 				99320AE02C66036600AF562B /* Model */,
 				99320ADF2C66031C00AF562B /* TabBar */,
@@ -164,8 +173,10 @@
 		99320AE12C66038D00AF562B /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				9996C6592C674DFF008F1722 /* Detail */,
 				99320AA82C64F78900AF562B /* SearchViewcontroller.swift */,
 				99320AE22C66039F00AF562B /* SearchTableViewCell.swift */,
+				99320AE92C67152200AF562B /* SearchViewModel.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -176,6 +187,22 @@
 				99320AE72C665EBB00AF562B /* NetworkManeger.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		99320AEB2C67155100AF562B /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				99320AEC2C67161000AF562B /* InputOutputViewModel.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		9996C6592C674DFF008F1722 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				9996C65A2C674E0D008F1722 /* SearchDetailView.swift */,
+			);
+			path = Detail;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -199,6 +226,7 @@
 				99320AC72C64F8F600AF562B /* RxSwift */,
 				99320ACA2C64F90500AF562B /* SnapKit */,
 				99320ACD2C64F91100AF562B /* Toast */,
+				9996C6572C674002008F1722 /* Kingfisher */,
 			);
 			productName = OurAppStore;
 			productReference = 99320AA12C64F78900AF562B /* OurAppStore.app */;
@@ -232,6 +260,7 @@
 				99320AC42C64F8F600AF562B /* XCRemoteSwiftPackageReference "RxSwift" */,
 				99320AC92C64F90500AF562B /* XCRemoteSwiftPackageReference "SnapKit" */,
 				99320ACC2C64F91100AF562B /* XCRemoteSwiftPackageReference "Toast-Swift" */,
+				9996C6562C674002008F1722 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = 99320AA22C64F78900AF562B /* Products */;
 			projectDirPath = "";
@@ -265,7 +294,10 @@
 				99320ADC2C64FC9C00AF562B /* ArcadeViewController.swift in Sources */,
 				99320AE52C665D5500AF562B /* Software.swift in Sources */,
 				99320ADE2C64FCD700AF562B /* AppViewController.swift in Sources */,
+				99320AEA2C67152200AF562B /* SearchViewModel.swift in Sources */,
+				99320AED2C67161000AF562B /* InputOutputViewModel.swift in Sources */,
 				99320ABD2C64F87900AF562B /* BaseTableViewCell.swift in Sources */,
+				9996C65B2C674E0D008F1722 /* SearchDetailView.swift in Sources */,
 				99320ADA2C64FC9600AF562B /* GameViewController.swift in Sources */,
 				99320AC12C64F8A700AF562B /* UIViewController+Extension.swift in Sources */,
 				99320AD12C64FA7900AF562B /* HomeTabBarController.swift in Sources */,
@@ -524,6 +556,14 @@
 				minimumVersion = 5.1.1;
 			};
 		};
+		9996C6562C674002008F1722 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.12.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -546,6 +586,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 99320ACC2C64F91100AF562B /* XCRemoteSwiftPackageReference "Toast-Swift" */;
 			productName = Toast;
+		};
+		9996C6572C674002008F1722 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9996C6562C674002008F1722 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
