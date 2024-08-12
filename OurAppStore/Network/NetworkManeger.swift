@@ -7,6 +7,8 @@
 
 import Foundation
 import RxSwift
+import RxCocoa
+import Alamofire
 
 enum APIError: Error {
     case invalidURL
@@ -49,5 +51,21 @@ final class NetworkManeger {
             return Disposables.create()
         }
         return result
+    }
+    
+    func fetchSoftware(appNmae: String) -> Single<Software> {
+        return Single.create { single -> Disposable in
+            let url = "https://itunes.apple.com/search?country=KR&term=\(appNmae)&media=software"
+            AF.request(url).validate(statusCode: 200..<299).responseDecodable(of: Software.self) { response in
+                switch response.result {
+                case .success(let success):
+                    single(.success(success))
+                case .failure(let failure):
+                    single(.failure(failure))
+                }
+            }
+            return Disposables.create()
+        }
+        .debug("싱글 에이피아이 통신")
     }
 }

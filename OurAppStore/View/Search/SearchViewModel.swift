@@ -24,25 +24,47 @@ class SearchViewModel: InputOutputViewModel {
         input.searchButtonClicked
             .throttle(.seconds(1), scheduler: MainScheduler.instance)
             .withLatestFrom(input.searchText)
-            .debug("1")
-            .distinctUntilChanged()
-            .debug("2")
-            .map { "\($0)"}
+//            .map { "\($0)"}
             .flatMap { value in
-                NetworkManeger.shared.callAPIRequest(appName: value)
+                NetworkManeger.shared.fetchSoftware(appNmae: value)
+                    .catch { error in
+                        return Single<Software>.never()
+                    }
             }
-            .debug("3")
             .subscribe(with: self) { owner, value in
-                appList.onNext(value.results)
-                print(value)
-            } onError: { owner, error in
-                print("Error: \(error)")
-            } onCompleted: { owner in
-                print("onCompleted")
-            } onDisposed: { owner in
-                print()
-            }
-            .disposed(by: disposeBag)
+                           appList.onNext(value.results)
+                           print(value)
+                       } onError: { owner, error in
+                            print("Error: \(error)")
+                       } onCompleted: { owner in
+                           print("onCompleted")
+                       } onDisposed: { owner in
+                           print()
+                       }
+                       .disposed(by: disposeBag)
+            
+//        input.searchButtonClicked
+//            .throttle(.seconds(1), scheduler: MainScheduler.instance)
+//            .withLatestFrom(input.searchText)
+//            .debug("1")
+//            .distinctUntilChanged()
+//            .debug("2")
+//            .map { "\($0)"}
+//            .flatMap { value in
+//                NetworkManeger.shared.callAPIRequest(appName: value)
+//            }
+//            .debug("3")
+//            .subscribe(with: self) { owner, value in
+//                appList.onNext(value.results)
+//                print(value)
+//            } onError: { owner, error in
+//                 print("Error: \(error)")
+//            } onCompleted: { owner in
+//                print("onCompleted")
+//            } onDisposed: { owner in
+//                print()
+//            }
+//            .disposed(by: disposeBag)
         return Output(appList: appList)
     }
 }

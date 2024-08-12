@@ -10,9 +10,7 @@ import SnapKit
 import RxSwift
 import RxCocoa
 
-
 final class SearchViewcontroller: BaseViewController {
-    let tempData = Observable.just(["dfads", "dasdsad"])
     let searchController = UISearchController(searchResultsController: nil)
     private let appListTableView = {
         let view = UITableView()
@@ -24,7 +22,7 @@ final class SearchViewcontroller: BaseViewController {
     private let saerchViewModel = SearchViewModel()
     let disposeBag = DisposeBag()
     override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(false)
+        super.viewWillDisappear(true)
         navigationController?.navigationBar.prefersLargeTitles = false
     }
     override func viewDidLoad() {
@@ -49,28 +47,6 @@ final class SearchViewcontroller: BaseViewController {
         searchController.searchBar.placeholder = "게임, 앱, 스토리 등"
     }
     override func bind() {
-         searchController.searchBar.rx.searchButtonClicked
-             .throttle(.seconds(1), scheduler: MainScheduler.instance)
-             .withLatestFrom(searchController.searchBar.rx.text.orEmpty)
-             .debug("1")
-             .distinctUntilChanged()
-             .debug("2")
-             .map { return "\($0)"}
-             .flatMap { value in
-                 NetworkManeger.shared.callAPIRequest(appName: value)
-             }
-             .debug("3")
-             .subscribe(with: self) { owner, value in
-                 print(type(of: value))
-                 dump(value)
-             } onError: { owner, error in
-                 print("error")
-             } onCompleted: { owner in
-                 print("oncompleted")
-             } onDisposed: { owner in
-                 print("ondisposed")
-             }
-             .disposed(by: disposeBag)
          let input = SearchViewModel.Input(searchText: searchController.searchBar.rx.text.orEmpty, searchButtonClicked: searchController.searchBar.rx.searchButtonClicked)
          let output = saerchViewModel.transfrom(input: input)
          
@@ -95,6 +71,6 @@ final class SearchViewcontroller: BaseViewController {
             }
             .disposed(by: disposeBag)
     }
-    
+
 }
 
