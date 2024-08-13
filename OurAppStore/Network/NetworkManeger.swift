@@ -68,4 +68,20 @@ final class NetworkManeger {
         }
         .debug("싱글 에이피아이 통신")
     }
+    
+    func fetchSoftwareResultType(appName: String) ->  Single<Result<Software, APIError>> {
+        return Single.create { observer -> Disposable in
+            let url = "https://itunes.apple.com/search?country=KR&term=\(appName)&media=software"
+            AF.request(url).validate(statusCode: 200..<299).responseDecodable(of: Software.self) { response in
+                switch response.result {
+                case.success(let value):
+                    observer(.success(.success(value)))
+                case.failure(let error):
+                    observer(.success(.failure(.invalidEmail)))
+                }
+            }
+            return Disposables.create()
+        }
+        .debug("Joke API 통신")
+    }
 }

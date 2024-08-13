@@ -21,10 +21,9 @@ class SearchViewModel: InputOutputViewModel {
     
     func transfrom(input: Input) -> Output {
         let appList = PublishSubject<[Result]>()
-        input.searchButtonClicked
+        let result = input.searchButtonClicked
             .throttle(.seconds(1), scheduler: MainScheduler.instance)
             .withLatestFrom(input.searchText)
-//            .map { "\($0)"}
             .flatMap { value in
                 NetworkManeger.shared.fetchSoftware(appNmae: value)
                     .catch { error in
